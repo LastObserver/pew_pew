@@ -2,6 +2,7 @@
 
 html, body
   height 100%
+  background #000
 
 .game
   width 100%
@@ -19,7 +20,10 @@ html, body
 .field
   background #000
   position relative
-  cursor none
+  border 2px solid #fff
+
+  &_started
+    cursor none
 
 .boi
   background #fff
@@ -36,18 +40,18 @@ html, body
   width 100px
   height 24px
   font-size 16px
-  background #fff
-  color #000
+  background #000
+  color #fff
   outline none
   border none
   transition .3s ease
   cursor pointer
-  border 2px solid #000
+  border 2px solid #fff
   border-bottom none
   
   & + &
     border-left none
   
   &:hover
-    background #000
-    color #fff
+    background #fff
+    color #000

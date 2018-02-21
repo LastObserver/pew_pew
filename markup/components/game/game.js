@@ -25,9 +25,15 @@ export default class Game {
 
   initGameControls() {
     this.stopButton = document.querySelector('.button_stop');
-    this.stopButton.addEventListener('click', () => this.timer.stop());
+    this.stopButton.addEventListener('click', () => {
+      this.timer.stop();
+      this.field.classList.remove('field_started');
+    });
     this.startButton = document.querySelector('.button_start');
-    this.startButton.addEventListener('click', () => this.timer.start());
+    this.startButton.addEventListener('click', () => {
+      this.timer.start();
+      this.field.classList.add('field_started');
+    });
   }
 
   run() {
