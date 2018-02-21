@@ -1,27 +1,17 @@
 doctype html
 html(class="no-js", lang="ru")
 
-    include ../components/head/head.pug
-    include ../components/example/example.pug
-    include ../components/footer/footer.pug
+  include ../components/head/head.pug
 
-    head
-        +head(head.defaults)
-    body.page
-        |%=symbols=%
+  head
+    +head(head.defaults)
+  body
+    |%=symbols=%
 
-        section.page__wrapper
+  .game
+    .controls
+      button(type="button" class="button button_start") START
+      button(type="button" class="button button_stop") STOP
+    canvas.field(width="900" height="600")
 
-            //- Include your components here
-            +example()
-
-            .page__buffer
-
-        .page__footer
-            +footer()
-
-        script(src='%=static=%js/separate-js/svg4everybody.min.js')
-        script svg4everybody();
-
-        //- Main scripts. You can replace it, but I recommend you to leave it here
-        script(src='%=static=%js/main%=hash=%%=min=%.js')
+    script(src='%=static=%js/main%=hash=%%=min=%.js')

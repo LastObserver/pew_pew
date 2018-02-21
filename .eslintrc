@@ -23,14 +23,14 @@
     },
 
     "rules": {
-        "indent": [2, 4, {"SwitchCase": 1}],
+        "indent": [2, 2, {"SwitchCase": 1}],
         "brace-style": [2, "1tbs"],
         "camelcase": [2, { "properties": "always" }],
         "comma-spacing": [2, {"before": false, "after": true}],
         "comma-style": [2, "last"],
         "consistent-return": 0,
         "curly": [2, "all"],
-        "default-case": 2,
+        "default-case": 0,
         "dot-notation": [2, { "allowKeywords": true }],
         "eol-last": 2,
         "eqeqeq": [2, "smart"],

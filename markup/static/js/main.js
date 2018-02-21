@@ -1,5 +1,8 @@
-'use strict';
+import Game from 'components/game/game';
 
-/*
-    This file can be used as entry point for webpack!
- */
+const game = document.querySelector('.game');
+const field = document.querySelector('.field');
+
+if (game && field) {
+  new Game(game, field);
+}
