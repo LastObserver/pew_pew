@@ -10,7 +10,9 @@ export default class Game {
     this.game = datGame;
     this.field = field;
     this.context = this.field.getContext('2d');
+    this.overlay = this.game.querySelector('.overlay');
     this.fps = 60;
+    this.started = false;
 
     this.timer = new Timer(this.run().bind(this), this.fps);
     this.keyboard = new Keyboard();
@@ -24,34 +26,26 @@ export default class Game {
   }
 
   initGameControls() {
-    this.stopButton = document.querySelector('.button_stop');
-    this.stopButton.addEventListener('click', () => {
-      this.timer.stop();
-      this.field.classList.remove('field_started');
-    });
     this.startButton = document.querySelector('.button_start');
-    this.startButton.addEventListener('click', () => {
-      this.timer.start();
-      this.field.classList.add('field_started');
+    this.resumeButton = document.querySelector('.button_resume');
+    this.resumeButton.style.display = 'none';
+    this.startButton.addEventListener('click', () => this.startGame());
+    this.resumeButton.addEventListener('click', () => this.resumeGame());
+    document.addEventListener('keydown', ev => {
+      if (ev.keyCode === 27) {
+        if (this.overlay.classList.contains('overlay_hidden')) {
+          this.pauseGame();
+        } else {
+          this.resumeGame();
+        }
+      }
     });
   }
 
   run() {
-    let loops = 0;
-    let nextGameTick = (new Date()).getTime();
-    const skipTicks = 1000 / this.fps;
-    const maxFrameSkip = 10;
     return () => {
-      loops = 0;
-
-      while ((new Date()).getTime() > nextGameTick && loops < maxFrameSkip) {
-        this.update();
-        nextGameTick += skipTicks;
-        loops++;
-      }
-      if (loops) {
-        this.draw();
-      }
+      this.update();
+      this.draw();
     };
   }
 
@@ -86,5 +80,25 @@ export default class Game {
 
   getId() {
     return '_' + Math.random().toString(36).substr(2, 9);
+  }
+
+  startGame() {
+    this.timer.start();
+    this.overlay.classList.add('overlay_hidden');
+    this.field.classList.add('field_started');
+    this.startButton.style.display = 'none';
+    this.resumeButton.style.display = 'block';
+  }
+
+  resumeGame() {
+    this.timer.start();
+    this.overlay.classList.add('overlay_hidden');
+    this.field.classList.add('field_started');
+  }
+
+  pauseGame() {
+    this.timer.stop();
+    this.overlay.classList.remove('overlay_hidden');
+    this.field.classList.remove('field_started');
   }
 }

@@ -3,7 +3,7 @@ export default class Timer {
     this.stopped = false;
     this.callback = callback;
     this.fps = fps;
-    this.reqAnimation = window.mozRequestAnimationFrame || window.msRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    this.reqAnimation = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.msRequestAnimationFrame || window.webkitRequestAnimationFrame;
   }
 
   onEachFrame(callback, reqAnimation) {

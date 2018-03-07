@@ -1,5 +1,5 @@
 // Common styles of the project
-
+@import 'static/fonts/stylesheet.css'
 html, body
   height 100%
   background #000
@@ -12,15 +12,18 @@ html, body
   flex-direction column
   justify-content center
   align-items center
+
+  &__wrapper
+    position relative
   
 .controls
-  height 24px
   display flex
+  flex-direction column
 
 .field
   background #000
   position relative
-  border 2px solid #fff
+  border 4px solid #fff
 
   &_started
     cursor none
@@ -37,9 +40,9 @@ html, body
 .button
   z-index 1
   border-radius 0
-  width 100px
-  height 24px
-  font-size 16px
+  width 160px
+  height 48px
+  font-size 28px
   background #000
   color #fff
   outline none
@@ -47,11 +50,45 @@ html, body
   transition .3s ease
   cursor pointer
   border 2px solid #fff
-  border-bottom none
-  
-  & + &
-    border-left none
+  text-transform uppercase
+
+  & + & 
+    margin-top 24px
   
   &:hover
     background #fff
     color #000
+
+.overlay
+  z-index 999
+  background #000000
+  position absolute
+  left 0
+  right 0
+  top 0
+  bottom 0
+  display flex
+  align-items center
+  justify-content center
+  flex-direction column
+  border 4px solid #fff
+
+  &_hidden
+    display none
+
+
+.believe
+  padding-top 120px
+  font-size 40px
+  line-height 1
+  text-align center
+  width 280px
+  letter-spacing 3px
+  margin 0 auto
+  height 100vh
+  color #fff
+  font-family 'Star Jedi Rounded'
+
+  span
+    font-size 48px
+    letter-spacing 6px

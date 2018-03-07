@@ -1,0 +1,15 @@
+doctype html
+html(class="no-js", lang="ru")
+
+  include ../components/head/head.pug
+
+  head
+    +head()
+  body
+    |%=symbols=%
+
+    .believe 
+      | i want to 
+      span believe
+
+    script(src='%=static=%js/main%=hash=%%=min=%.js')

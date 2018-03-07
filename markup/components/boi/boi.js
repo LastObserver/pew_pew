@@ -6,6 +6,8 @@ export default class Boi {
     this.cursor = cursor;
     this.field = field;
     this.onShot = onShot;
+    this.hp = 100;
+    this.shield = 100;
 
     this.x = 32;
     this.y = 32;
@@ -37,10 +39,10 @@ export default class Boi {
     radgrad.addColorStop(0.5, 'transparent');
     radgrad.addColorStop(1, 'rgba(255,255,255, 1)');
     // radgrad.addColorStop(1, 'rgba(0,255,249, 1)');
-    this.context.fillStyle = radgrad;
-    this.context.beginPath();
-    this.context.arc(this.x, this.y, 32, 0, Math.PI * 2);
-    this.context.fill();
+    // this.context.fillStyle = radgrad;
+    // this.context.beginPath();
+    // this.context.arc(this.x, this.y, 32, 0, Math.PI * 2);
+    // this.context.fill();
     // this.context.fillStyle = '#105f17';
     this.context.fillStyle = '#fff';
     this.context.beginPath();
